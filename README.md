@@ -21,3 +21,6 @@ This means for the machines with only 32 slurm cpus, probably best to use 3 work
 Otherwise, I found 4 workers per gpu with total # cpus request 40 to give fast speeds on the 3090 setup.
 
 The slurm command I used for the 3090s was `nlprun -r 100G -c 40 -g 4`.
+
+## How I wrote this
+This is essentially just the standard PyTorch ImageNet training script (https://github.com/pytorch/examples/blob/main/imagenet/main.py) with a modified dataloader. The meat of the dataloader bits are here: https://github.com/tatsu-lab/fast_imagenet_ffcv/blob/main/train_ffcv.py#L123-L154.
