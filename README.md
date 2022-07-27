@@ -9,9 +9,10 @@ Run via `python train_ffcv.py`.
 ## Notes
 The datasets are already preprocessed (available in `/self/scr-sync/nlp/imagenet_ffcv` on each NLP cluster machine).
 Training is fast bc entire ImageNet is cached in memory.
-Tested on 4 3090s, it takes 10 hours to train (~10 epochs/hour).
+Tested on 4 3090s, it takes 10 hours to train a ResNet50 (~10 epochs/hour for 100 epochs).
 On 1 3090, it takes 36 hours.
 On 4 A100s, it takes 5 hours.
+Accuracy for a ResNet50 on 4 gpus with batch size 256 per gpu (default params) is 75.4%.
 
 ## Slurm advice
 Since dataset itself is ~70G, I would request 100G for the job to be safe.
